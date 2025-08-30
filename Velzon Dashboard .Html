@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Velzon Dashboard</title>
+  <link href="https://fonts.googleapis.com/css?family=Inter:400,600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', Arial, sans-serif;
+      background: #f5f6fa;
+      color: #222;
+    }
+    .dashboard-container {
+      display: flex;
+      min-height: 100vh;
+    }
+    .sidebar {
+      width: 220px;
+      background: #2a3042;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      padding: 30px 0;
+    }
+    .sidebar .logo {
+      font-size: 1.6em;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 40px;
+      letter-spacing: 2px;
+    }
+    .sidebar nav {
+      flex: 1;
+    }
+    .sidebar nav a {
+      display: block;
+      color: #bfc9da;
+      text-decoration: none;
+      padding: 15px 40px;
+      font-size: 1em;
+      transition: background 0.2s, color 0.2s;
+    }
+    .sidebar nav a.active,
+    .sidebar nav a:hover {
+      background: #505887;
+      color: #fff;
+    }
+    .main-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .header {
+      background: #fff;
+      padding: 20px 40px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .header .title {
+      font-size: 1.4em;
+      font-weight: 600;
+      color: #2a3042;
+    }
+    .header .user {
+      font-size: 1em;
+      color: #505887;
+    }
+    .content {
+      padding: 40px;
+      flex: 1;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      padding: 30px 25px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      transition: box-shadow 0.2s;
+    }
+    .card:hover {
+      box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+    }
+    .card .card-title {
+      font-size: 1em;
+      color: #505887;
+      margin-bottom: 10px;
+    }
+    .card .card-value {
+      font-size: 2em;
+      font-weight: 600;
+      color: #2a3042;
+    }
+    .card .card-desc {
+      font-size: 0.95em;
+      color: #bfc9da;
+      margin-top: 8px;
+    }
+    @media (max-width: 900px) {
+      .dashboard-container {
+        flex-direction: column;
+      }
+      .sidebar {
+        width: 100%;
+        flex-direction: row;
+        padding: 0;
+        height: 60px;
+      }
+      .sidebar .logo {
+        display: none;
+      }
+      .sidebar nav {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+      }
+      .sidebar nav a {
+        flex: 1;
+        padding: 15px 0;
+        text-align: center;
+      }
+      .main-content .content {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard-container">
+    <aside class="sidebar">
+      <div class="logo">Velzon</div>
+      <nav>
+        <a href="#" class="active">Dashboard</a>
+        <a href="#">Analytics</a>
+        <a href="#">Projects</a>
+        <a href="#">Users</a>
+        <a href="#">Settings</a>
+      </nav>
+    </aside>
+    <div class="main-content">
+      <div class="header">
+        <div class="title">Dashboard</div>
+        <div class="user">Welcome, Admin</div>
+      </div>
+      <div class="content">
+        <div class="cards">
+          <div class="card">
+            <div class="card-title">Total Users</div>
+            <div class="card-value">2,340</div>
+            <div class="card-desc">+5% this month</div>
+          </div>
+          <div class="card">
+            <div class="card-title">Revenue</div>
+            <div class="card-value">$18,200</div>
+            <div class="card-desc">+8% this month</div>
+          </div>
+          <div class="card">
+            <div class="card-title">Projects</div>
+            <div class="card-value">128</div>
+            <div class="card-desc">+2 new</div>
+          </div>
+          <div class="card">
+            <div class="card-title">Tickets</div>
+            <div class="card-value">76</div>
+            <div class="card-desc">-3 resolved</div>
+          </div>
+        </div>
+        <!-- Add more dashboard content here -->
+      </div>
+    </div>
+  </div>
+</body>
