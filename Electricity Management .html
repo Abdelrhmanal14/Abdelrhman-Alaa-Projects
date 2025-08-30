@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Electricity Management</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 2rem;
+      background-color: #f0f8ff;
+    }
+    h1 {
+      color: #333;
+    }
+    label, input, button {
+      font-size: 1rem;
+      margin: 0.5rem 0;
+    }
+    input {
+      padding: 0.3rem;
+      width: 100px;
+    }
+    button {
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+    }
+    #result {
+      margin-top: 1rem;
+      font-weight: bold;
+      color: #006400;
+    }
+  </style>
+</head>
+<body>
+  <h1>Electricity Management System</h1>
+  <label for="units">Enter units consumed:</label>
+  <input type="number" id="units" min="0" />
+  <button onclick="calculateBill()">Calculate Bill</button>
+
+  <div id="result"></div>
+
+  <script>
+    function calculateBill() {
+      const units = parseFloat(document.getElementById('units').value);
+      if (isNaN(units) || units < 0) {
+        document.getElementById('result').textContent = 'Please enter a valid positive number for units.';
+        return;
+      }
+
+      let bill = 0;
+
+      if (units <= 100) {
+        bill = units * 0.5;
+      } else if (units <= 200) {
+        bill = 100 * 0.5 + (units - 100) * 0.75;
+      } else if (units <= 300) {
+        bill = 100 * 0.5 + 100 * 0.75 + (units - 200) * 1.2;
+      } else {
+        bill = 100 * 0.5 + 100 * 0.75 + 100 * 1.2 + (units - 300) * 1.5;
+      }
+
+      document.getElementById('result').textContent = `Total Bill Amount: $${bill.toFixed(2)}`;
+    }
+  </script>
+</body>
+</html>
